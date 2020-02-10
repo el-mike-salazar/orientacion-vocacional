@@ -1,0 +1,20 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-copyright {
+    background: #233858;
+    /* background: #02a871da; */
+    padding-bottom: 10px;
+}
+
+.footer-copyright p {
+    margin: 1px 0 0;
+}
+
+.fsf {
+    font-size: 12px;
+    color: white;
+}
