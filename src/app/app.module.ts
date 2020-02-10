@@ -7,12 +7,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './components/test/test.component';
 import { RetroalimentacionComponent } from './components/retroalimentacion/retroalimentacion.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    RetroalimentacionComponent
+    RetroalimentacionComponent,
+    NavbarComponent,
+    FooterComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
