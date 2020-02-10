@@ -1,1 +1,44 @@
-<p>test works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">¿Qué tanto te agrada?</h5>
+                <h6 class="card-subtitle mb-2 text-muted text-center">Salir de Excursión</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <img class="img-form grow" data-toggle="tooltip" data-placement="top" title="Me agrada bastante" src="../../../assets/5.jpg" (click)="sumarRespuesta(5)">
+        <button type="button" class="btn btn-info b-position btn-block" (click)="mostrarDetalle()"><i class="fa fa-check-circle" aria-hidden="true"></i> 10</button>
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <img class="img-form grow" data-toggle="tooltip" data-placement="top" title="Me agrada algo o en parte" src="../../../assets/4.jpg" (click)="sumarRespuesta(4)">
+        <button type="button" class="btn btn-info b-position btn-block" (click)="mostrarDetalle()"><i class="fa fa-check-circle" aria-hidden="true"></i> 23</button>
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <img class="img-form grow" data-toggle="tooltip" data-placement="top" title="Me es indiferente, pues ni me gusta ni me disgusta" src="../../../assets/3.jpg" (click)="sumarRespuesta(3)">
+        <button type="button" class="btn btn-info b-position btn-block" (click)="mostrarDetalle()"><i class="fa fa-check-circle" aria-hidden="true"></i> 4</button>
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <img class="img-form grow" data-toggle="tooltip" data-placement="top" title="Me desagrada algo o en parte" src="../../../assets/2.jpg" (click)="sumarRespuesta(2)">
+        <button type="button" class="btn btn-info b-position btn-block" (click)="mostrarDetalle()"><i class="fa fa-check-circle" aria-hidden="true"></i> 2</button>
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <img class="img-form grow" data-toggle="tooltip" data-placement="top" title="Me desagrada mucho o totalmente" src="../../../assets/1.jpg" (click)="sumarRespuesta(1)">
+        <button type="button" class="btn btn-info b-position btn-block" (click)="mostrarDetalle()"><i class="fa fa-check-circle" aria-hidden="true"></i> 3</button>
+    </div>
+    <div class="col-sm-1 col-md-1 col-lg-1"></div>
+</div>
+<div class="row" *ngIf="detalle" style="margin-top: 60px;">
+    <div class="col-12">
+        <ul class="list-group animated fadeIn fast">
+            <li class="list-group-item">Dapibus ac facilisis in <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></li>
+            <li class="list-group-item">Morbi leo risus <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></li>
+            <li class="list-group-item">Porta ac consectetur ac <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></li>
+            <li class="list-group-item">Vestibulum at eros <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></li>
+        </ul>
+    </div>
+</div>
