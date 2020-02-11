@@ -1,4 +1,24 @@
 .mine-container {
-    margin-top: 100px;
+    margin-top: 110px;
     margin-bottom: 100px;
+}
+
+.image-reg {
+    background-image: url("../../../assets/orientacion.jpg");
+    position: static;
+    margin-bottom: -21px;
+    margin-top: -21px;
+    margin-left: -6px;
+}
+
+
+/* .logo {
+    width: 120px;
+    vertical-align: middle;
+} */
+
+@media (max-width:765px) {
+    div#optionalstuff {
+        display: none;
+    }
 }
