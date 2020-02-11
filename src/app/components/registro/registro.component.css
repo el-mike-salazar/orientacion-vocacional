@@ -11,6 +11,12 @@
     margin-left: -6px;
 }
 
+
+/* .logo {
+    width: 120px;
+    vertical-align: middle;
+} */
+
 @media (max-width:765px) {
     div#optionalstuff {
         display: none;
