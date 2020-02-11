@@ -11,8 +11,8 @@
     margin-left: -6px;
 }
 
-@media (max-width:629px) {
-    img#optionalstuff {
+@media (max-width:765px) {
+    div#optionalstuff {
         display: none;
     }
 }
