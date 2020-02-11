@@ -1,20 +1,21 @@
 .mine-container {
-    margin-top: 30px;
-    margin-bottom: 90px;
+    margin-top: 110px;
+    margin-bottom: 100px;
 }
 
 .img-form {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.795), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.541), 0 6px 20px 0 rgba(0, 0, 0, 0.301); */
     margin-top: 15px;
-    width: 100%;
-    height: 80%;
-    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    /* border-radius: 25px; */
 }
 
 .grow:hover {
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    transform: scale(1.02);
+    -webkit-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+    cursor: pointer;
 }
 
 .b-position {
@@ -50,4 +51,8 @@
 
 .fadeIn {
     animation-name: fadeIn;
+}
+
+.cursor-bad {
+    cursor: pointer;
 }

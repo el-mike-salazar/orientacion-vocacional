@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-test',
@@ -86,6 +87,12 @@ export class TestComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // Swal.fire({
+    //   title: 'Antes de Comenzar!',
+    //   text: 'En base a la pregunta, selecciona uno de los Emojis',
+    //   icon: 'info',
+    //   confirmButtonText: 'De Acuerdo',
+    // });
   }
 
   mostrarDetalle(){

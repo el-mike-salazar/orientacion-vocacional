@@ -1,67 +1,63 @@
 <div class="mine-container container">
-    <div class="card shadow">
-        <div class="card-header">
-            <h5>Información del Estudiante</h5>
-        </div>
+    <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.74), 0 6px 20px 0 rgba(0, 0, 0, 0.301);">
         <div class="card-body">
-
-            <div class="row form-group">
-                <div class="form-group col-md-6">
-                    <label>Nombre</label>
-                    <input type="text" class="form-control" placeholder="Nombre">
-                    <div class="invalid-feedback">
-                        Ingrese un nombre valido,por favor.
+            <div class="row">
+                <div id="optionalstuff" class="col-xs-1 col-sm-1 col-md-6 col-lg-6 col-xl-6 text-center image-reg">
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 col-xl-6">
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <h3 class="card-title text-center">Test de Orientación Vocacional</h3>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" placeholder="Nombre">
+                            <div class="invalid-feedback">
+                                Ingrese un nombre valido,por favor.
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Apellido Paterno</label>
+                            <input type="text" class="form-control" placeholder="Apellido Paterno">
+                            <div class="invalid-feedback">
+                                Ingrese un nombre valido, por favor.
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Apellido Materno</label>
+                            <input type="text" class="form-control" placeholder="Apellido Materno">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Correo Electrónico</label>
+                            <input type="text" class="form-control" placeholder="Correo Electrónico">
+                            <div class="invalid-feedback">
+                                Ingrese un correo electrónico valido. (example@email.com)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Teléfono</label>
+                            <input type="text" class="form-control" placeholder="Teléfono">
+                            <div class="invalid-feedback">
+                                Ingrese su número de teléfono
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Edad</label>
+                            <input type="text" class="form-control" placeholder="Edad">
+                            <div class="invalid-feedback">
+                                Ingrese su edad, por favor
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label>Apellido Paterno</label>
-                    <input type="text" class="form-control" placeholder="Apellido Paterno">
-                    <div class="invalid-feedback">
-                        Ingrese un nombre valido, por favor.
-                    </div>
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label>Apellido Materno</label>
-                    <input type="text" class="form-control" placeholder="Apellido Materno">
-                </div>
-            </div>
-
-            <div class="row form-group">
-                <div class="form-group col-md-5">
-                    <label>Correo Electrónico</label>
-                    <input type="text" class="form-control" placeholder="Correo Electrónico">
-                    <div class="invalid-feedback">
-                        Ingrese un correo electrónico valido. (example@email.com)
-                    </div>
-                </div>
-
-                <div class="form-group col-md-5">
-                    <label>Teléfono</label>
-                    <input type="text" class="form-control" placeholder="Teléfono">
-                    <div class="invalid-feedback">
-                        Ingrese su número de teléfono
-                    </div>
-                </div>
-
-                <div class="form-group col-md-2">
-                    <label>Edad</label>
-                    <input type="text" class="form-control" placeholder="Edad">
-                    <div class="invalid-feedback">
-                        Ingrese su edad, por favor
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-inline mt-3 text-right">
-                <div class="list-inline-item">
-                    <div>
-                        <button [routerLink]="['/test']" type="submit" class="btn btn-outline-primary"><i class="fa fa-check mr-2"></i>Ingresar</button>
+                    <div class="list-inline mt-3 text-right">
+                        <div class="list-inline-item">
+                            <div>
+                                <button [routerLink]="['/test']" type="submit" class="btn btn-outline-primary"><i class="fa fa-check mr-2"></i>Ingresar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>

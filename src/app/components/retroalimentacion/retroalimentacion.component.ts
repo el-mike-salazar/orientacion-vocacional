@@ -15,7 +15,7 @@ export class RetroalimentacionComponent implements OnInit {
       type: 'pie'
     },
     title: {
-      text: 'Resultados de Orientacion Vocacional'
+      text: ''
     },
     series: [{
       name: '% de Usuarios',
