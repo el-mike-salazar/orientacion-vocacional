@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 
+declare var $: any;
+
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -71,22 +73,18 @@ export class TestComponent implements OnInit {
     '60.	Técnico organizador de oficinas'
   ];
 
-  uno = [
-  ];
-  dos = [
-  ];
-  tres = [
-  ];
-  cuatro = [
-  ];
-  cinco = [
-  ];
+  uno = [];
+  dos = [];
+  tres = [];
+  cuatro = [];
+  cinco = [];
 
   detalle: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    $('[data-toggle="tooltip"]').tooltip();
     // Swal.fire({
     //   title: 'Antes de Comenzar!',
     //   text: 'En base a la pregunta, selecciona uno de los Emojis',
@@ -95,12 +93,12 @@ export class TestComponent implements OnInit {
     // });
   }
 
-  mostrarDetalle(){
-    if (this.detalle == true) {
+  mostrarDetalle() {
+    if (this.detalle === true) {
       this.detalle = false;
       console.log(this.detalle);
     } else {
-      this.detalle = true
+      this.detalle = true;
       console.log(this.detalle);
     }
   }
@@ -108,5 +106,4 @@ export class TestComponent implements OnInit {
   sumarRespuesta(idRespuesta) {
     console.log(idRespuesta);
   }
-
 }
