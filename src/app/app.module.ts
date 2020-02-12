@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { IndicacionComponent } from './components/indicacion/indicacion.component';
+import { EstadisticaComponent } from './components/estadistica/estadistica.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { IndicacionComponent } from './components/indicacion/indicacion.componen
     NavbarComponent,
     FooterComponent,
     RegistroComponent,
-    IndicacionComponent
+    IndicacionComponent,
+    EstadisticaComponent
   ],
   imports: [
     BrowserModule,

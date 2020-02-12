@@ -4,11 +4,13 @@ import { TestComponent } from './components/test/test.component';
 import { RetroalimentacionComponent } from './components/retroalimentacion/retroalimentacion.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { IndicacionComponent } from './components/indicacion/indicacion.component';
+import { EstadisticaComponent } from './components/estadistica/estadistica.component';
 
 
 const routes: Routes = [
   {path: 'registro', component: RegistroComponent},
   {path: 'indicacion', component: IndicacionComponent},
+  {path: 'estadistica', component: EstadisticaComponent},
   {path: 'test', component: TestComponent},
   {path: 'retroalimentacion', component: RetroalimentacionComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'registro' }
