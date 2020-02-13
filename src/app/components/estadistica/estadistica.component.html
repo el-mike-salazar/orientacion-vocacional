@@ -1,0 +1,78 @@
+<div class=" mine-container container">
+    <div class="card animated fadeIn" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.541), 0 6px 20px 0 rgba(0, 0, 0, 0.301);">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="card-title text-center text-uppercase">Estadistica</h3>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 15px;">
+                <div class="col-md-6">
+                    <h4 class="text-center mt-2 text-uppercase">General</h4>
+                    <div class="container">
+                        <div class="mt-5">
+                            <highcharts-chart [Highcharts]="Highcharts" [constructorType]="chartConstructor" [options]="chartOptions" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="text-center text-uppercase">Por Preparartoria</h4>
+                    <div class="container">
+                        <select class="custom-select mt-1">
+                            <option >---SELECCIONE UNA OPCION---</option>
+                            <option>CBTIS 39</option>
+                            <option>CBTIS 168</option>
+                            <option>Conalep 1</option>
+                            <option>Conalep 2</option>
+                        </select>
+                    </div>
+                    <div class=" mt-2">
+                        <highcharts-chart [Highcharts]="Highcharts2" [constructorType]="chartConstructor2" [options]="chartOptions2" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="container text-center">
+                <h3>Estadistica de: ...</h3>
+                <div class="container mt-3 mb-3">
+                    <div class="card ">
+
+                        <table class="table table-border">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>Edad</th>
+                                    <th>Perfil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Abraham</td>
+                                    <td>Carranza</td>
+                                    <td>22</td>
+                                    <td>Ing. en Sistemas</td>
+                                </tr>
+                                <tr>
+                                    <td>Frsncisco</td>
+                                    <td>Tapia</td>
+                                    <td>25</td>
+                                    <td>Ing. en Sistemas</td>
+                                </tr>
+                                <tr>
+                                    <td>Luis</td>
+                                    <td>Castañeda</td>
+                                    <td>22</td>
+                                    <td>Ing. en Sistemas</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
