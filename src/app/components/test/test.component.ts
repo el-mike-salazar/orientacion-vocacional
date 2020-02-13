@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
+declare var $: any;
+
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -71,22 +80,18 @@ export class TestComponent implements OnInit {
     '60.	Técnico organizador de oficinas'
   ];
 
-  uno = [
-  ];
-  dos = [
-  ];
-  tres = [
-  ];
-  cuatro = [
-  ];
-  cinco = [
-  ];
+  uno = [];
+  dos = [];
+  tres = [];
+  cuatro = [];
+  cinco = [];
 
   detalle: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    $('[data-toggle="tooltip"]').tooltip();
     // Swal.fire({
     //   title: 'Antes de Comenzar!',
     //   text: 'En base a la pregunta, selecciona uno de los Emojis',
@@ -95,12 +100,12 @@ export class TestComponent implements OnInit {
     // });
   }
 
-  mostrarDetalle(){
-    if (this.detalle == true) {
+  mostrarDetalle() {
+    if (this.detalle === true) {
       this.detalle = false;
       console.log(this.detalle);
     } else {
-      this.detalle = true
+      this.detalle = true;
       console.log(this.detalle);
     }
   }
@@ -109,4 +114,28 @@ export class TestComponent implements OnInit {
     console.log(idRespuesta);
   }
 
+  removerPregunta(idPregunta) {
+
+    Swal.fire({
+      title: 'Estas a punto de quitar esta respuesta',
+      text: '¿Estas seguro que deseas continuar?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#17a2b8',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '<i class="fas fa-check-circle"></i> Continuar',
+      cancelButtonText: '<i class="fas fa-times-circle"></i> Cancelar'
+    }).then((result) => {
+      if (result.value) {
+      // tslint:disable-next-line: only-arrow-functions
+        $(document).ready(function() {
+            $('#' + idPregunta).remove();
+        });
+        Toast.fire({
+          icon: 'info',
+          title: 'La respuesta fue removida exitosamente'
+        });
+      }
+    });
+  }
 }

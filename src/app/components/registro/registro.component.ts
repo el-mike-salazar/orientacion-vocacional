@@ -15,7 +15,8 @@ export class RegistroComponent implements OnInit {
       title: '¡Bienvenido!',
       text: 'Este es un test que te puede ayudar a decidir que carrera elegir.',
       icon: 'info',
-      confirmButtonText: 'Ok',
+      confirmButtonText: '<i class="fas fa-sign-in-alt"></i> Entendido',
+      confirmButtonColor: '#17a2b8'
     });
   }
 

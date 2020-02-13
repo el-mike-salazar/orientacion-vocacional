@@ -7,7 +7,7 @@
                     <h2 class="card-subtitle mb-2 text-muted text-center">Salir de Excursión</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-sm-2 col-md-2 col-lg-2 text-center">
                     <img class="img-form grow" data-toggle="tooltip" data-placement="top" title="Me agrada bastante" src="../../../assets/5.png" (click)="sumarRespuesta(5)">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="col-sm-2 col-md-2 col-lg-2 text-center">
-                    <img class="img-form grow" data-toggle="tooltip" data-placement="top" title="Me es indiferente, pues ni me gusta ni me disgusta" src="../../../assets/3.png" (click)="sumarRespuesta(3)">
+                    <img class="img-form grow" data-toggle="tooltip" data-placement="top" title="Me es indiferente, pues ni me gusta, ni me disgusta" src="../../../assets/3.png" (click)="sumarRespuesta(3)">
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <span (click)="mostrarDetalle()" class="badge badge-info b-position cursor-bad">10 <i class="fas fa-check-circle"></i></span>
@@ -53,17 +53,17 @@
             </div>
             <div class="row" *ngIf="detalle" style="margin-top: 60px;">
                 <div class="col-12 animated fadeIn fast">
-                    <span class="badge badge-info cursor-bad">Armar y desarmar objetos mecánicos <i class="fas fa-times-circle"></i></span>&nbsp;
-                    <span class="badge badge-info cursor-bad">Resolver mecanizaciones numéricas <i class="fas fa-times-circle"></i></span>&nbsp;
-                    <span class="badge badge-info cursor-bad">Conocer y estudiar la estructura de las plantas y animales <i class="fas fa-times-circle"></i></span>&nbsp;
-                    <span class="badge badge-info cursor-bad">Discutir en clase <i class="fas fa-times-circle"></i></span>&nbsp;
-                    <span class="badge badge-info cursor-bad">Dibujar y pintar a colores <i class="fas fa-times-circle"></i></span>&nbsp;
-                    <span class="badge badge-info cursor-bad">Escribir cuentos, crónicas o artículos <i class="fas fa-times-circle"></i></span>&nbsp;
+                    <span class="badge badge-info cursor-bad" id="1" (click)="removerPregunta(1)">Armar y desarmar objetos mecánicos <i class="fas fa-times-circle"></i></span>&nbsp;
+                    <span class="badge badge-info cursor-bad" id="2" (click)="removerPregunta(2)">Resolver mecanizaciones numéricas <i class="fas fa-times-circle"></i></span>&nbsp;
+                    <span class="badge badge-info cursor-bad" id="3" (click)="removerPregunta(3)">Conocer y estudiar la estructura de las plantas y animales <i class="fas fa-times-circle"></i></span>&nbsp;
+                    <span class="badge badge-info cursor-bad" id="4" (click)="removerPregunta(4)">Discutir en clase <i class="fas fa-times-circle"></i></span>&nbsp;
+                    <span class="badge badge-info cursor-bad" id="5" (click)="removerPregunta(5)">Dibujar y pintar a colores <i class="fas fa-times-circle"></i></span>&nbsp;
+                    <span class="badge badge-info cursor-bad" id="6" (click)="removerPregunta(6)">Escribir cuentos, crónicas o artículos <i class="fas fa-times-circle"></i></span>&nbsp;
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 text-center" style="margin-top: 60px;">
-                    <button type="button" [routerLink]="['/retroalimentacion']" class="btn btn-info"><i class="fas fa-chart-pie"></i> Ver Resultado</button>
+                    <button type="button" [routerLink]="['/retroalimentacion']" class="btn btn-outline-info"><i class="fas fa-chart-pie"></i> Ver Resultado</button>
                 </div>
             </div>
         </div>

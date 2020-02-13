@@ -10,6 +10,7 @@ import { RetroalimentacionComponent } from './components/retroalimentacion/retro
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { IndicacionComponent } from './components/indicacion/indicacion.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RegistroComponent } from './components/registro/registro.component';
     RetroalimentacionComponent,
     NavbarComponent,
     FooterComponent,
-    RegistroComponent
+    RegistroComponent,
+    IndicacionComponent
   ],
   imports: [
     BrowserModule,
