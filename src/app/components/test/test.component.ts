@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
 declare var $: any;
 
 @Component({
@@ -105,5 +112,30 @@ export class TestComponent implements OnInit {
 
   sumarRespuesta(idRespuesta) {
     console.log(idRespuesta);
+  }
+
+  removerPregunta(idPregunta) {
+
+    Swal.fire({
+      title: 'Estas a punto de quitar esta respuesta',
+      text: '¿Estas seguro que deseas continuar?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#17a2b8',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '<i class="fas fa-check-circle"></i> Continuar',
+      cancelButtonText: '<i class="fas fa-times-circle"></i> Cancelar'
+    }).then((result) => {
+      if (result.value) {
+      // tslint:disable-next-line: only-arrow-functions
+        $(document).ready(function() {
+            $('#' + idPregunta).remove();
+        });
+        Toast.fire({
+          icon: 'info',
+          title: 'La respuesta fue removida exitosamente'
+        });
+      }
+    });
   }
 }

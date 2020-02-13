@@ -25,3 +25,12 @@
 .right-align {
     right: 1px;
 }
+
+.cursor-bad {
+    cursor: pointer;
+}
+
+.cursor-bad:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

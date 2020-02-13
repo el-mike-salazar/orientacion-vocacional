@@ -28,7 +28,3 @@
 .fadeIn {
     animation-name: fadeIn;
 }
-
-.cursor-bad {
-    cursor: pointer;
-}
