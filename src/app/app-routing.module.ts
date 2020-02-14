@@ -7,10 +7,10 @@ import { IndicacionComponent } from './components/indicacion/indicacion.componen
 
 
 const routes: Routes = [
-  {path: 'registro', component: RegistroComponent},
-  {path: 'indicacion', component: IndicacionComponent},
-  {path: 'test', component: TestComponent},
-  {path: 'retroalimentacion', component: RetroalimentacionComponent},
+  {path: 'registro/:idPreparatoria', component: RegistroComponent},
+  {path: 'indicacion/:idPersona', component: IndicacionComponent},
+  {path: 'test/:idPersona', component: TestComponent},
+  {path: 'retroalimentacion/:idPersona', component: RetroalimentacionComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'registro' }
 ];
 

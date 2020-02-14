@@ -3,12 +3,12 @@ export class PersonaModel {
     _id?: string;
     strNombre: string;
     strPrimerApellido: string;
-    strSegndoApellido: string;
+    strSegundoApellido?: string;
     nmbEdad: number;
     strCorreo: string;
     strTelefono: string;
-    idPrepa: string;
-    jsnRespuesta: [
+    idPreparatoria: string;
+    jsnRespuesta?: [
         {
             _id: string;
             _idPregunta: string;
