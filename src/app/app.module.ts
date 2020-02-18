@@ -13,6 +13,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { IndicacionComponent } from './components/indicacion/indicacion.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EstadisticaComponent } from './components/estadistica/estadistica.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     FooterComponent,
     RegistroComponent,
-    IndicacionComponent
+    IndicacionComponent,
+    EstadisticaComponent
   ],
   imports: [
     BrowserModule,

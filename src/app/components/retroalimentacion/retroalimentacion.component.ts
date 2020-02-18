@@ -44,7 +44,7 @@ export class RetroalimentacionComponent implements OnInit {
     series: [{
         name: '% de Coincidencia',
         colorByPoint: true,
-        data:[]
+        data: []
     }]
 };
 

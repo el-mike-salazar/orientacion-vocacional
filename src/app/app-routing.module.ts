@@ -4,6 +4,7 @@ import { TestComponent } from './components/test/test.component';
 import { RetroalimentacionComponent } from './components/retroalimentacion/retroalimentacion.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { IndicacionComponent } from './components/indicacion/indicacion.component';
+import { EstadisticaComponent } from './components/estadistica/estadistica.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'indicacion/:idPersona', component: IndicacionComponent},
   {path: 'test/:idPersona', component: TestComponent},
   {path: 'retroalimentacion/:idPersona', component: RetroalimentacionComponent},
+  {path: 'estadistica', component: EstadisticaComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'registro' }
 ];
 

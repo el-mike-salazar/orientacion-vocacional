@@ -44,7 +44,7 @@ export class TestComponent implements OnInit {
     this.preguntaService.getPregunta(this.idPersona).then((data: any) => {
       if (data.cont.ultima) {
         this.route.navigate([`/retroalimentacion/${this.idPersona}`]);
-      }else {
+      } else {
         this.pregunta = data.cont.pregunta;
       }
     }).catch(err => {
@@ -93,7 +93,7 @@ export class TestComponent implements OnInit {
       this.obtenerPregunta();
       this.detalle = false;
       // console.log(resp);
-    }).catch( err=> {
+    }).catch( err => {
       // console.log(err);
       Swal.fire({
         title: 'Upssss! Sucedió un problema',
