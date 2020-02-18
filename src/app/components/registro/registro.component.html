@@ -1,78 +1,116 @@
 <div class="mine-container container">
     <div class="card animated fadeIn" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.74), 0 6px 20px 0 rgba(0, 0, 0, 0.301);">
-        <form #forma="ngForm" enctype="multipart/form-data">
-            <div class="card-body">
-                <div class="row">
-                    <div id="optionalstuff" class="col-md-6 text-center image-reg">
-                        <!-- <img class="logo mt-5" src="../../../assets/logo.png"> -->
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h3 class="card-title text-center">Test de Orientación Vocacional</h3>
-                                <!-- <h3 class="text-center"><i class="fas fa-user-edit"></i></h3> -->
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label>Nombre</label>
-                                <input [ngClass]="{'is-invalid': strNombre.errors?.required && forma.controls['strNombre'].touched }" type="text" class="form-control form-control-sm" placeholder="Nombre" name="strNombre" [(ngModel)]="persona.strNombre" required #strNombre="ngModel">
-                                <div class="invalid-feedback" *ngIf="strNombre.errors?.required">
-                                    Ingrese un Nombre valido por favor.
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Apellido Paterno</label>
-                                <input [ngClass]="{'is-invalid': strPrimerApellido.errors?.required && forma.controls['strPrimerApellido'].touched }" type="text" class="form-control form-control-sm" placeholder="Apellido Paterno" name="strPrimerApellido" [(ngModel)]="persona.strPrimerApellido"
-                                    required #strPrimerApellido="ngModel">
-                                <div class="invalid-feedback" *ngIf="strPrimerApellido.errors?.required">
-                                    Ingrese un Apellido Paterno valido por favor.
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Apellido Materno</label>
-                                <input [ngClass]="{'is-invalid': strSegundoApellido.errors?.required && forma.controls['strSegundoApellido'].touched }" type="text" class="form-control form-control-sm" placeholder="Apellido Materno" name="strSegundoApellido" [(ngModel)]="persona.strSegundoApellido"
-                                    required #strSegundoApellido="ngModel">
-                                <div class="invalid-feedback" *ngIf="strSegundoApellido.errors?.required">
-                                    Ingrese un Apellido Materno valido por favor.
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Edad</label>
-                                <input [ngClass]="{'is-invalid': nmbEdad.errors?.required && forma.controls['nmbEdad'].touched }" type="text" class="form-control form-control-sm" placeholder="Edad" name="nmbEdad" [(ngModel)]="persona.nmbEdad" required #nmbEdad="ngModel">
-                                <div class="invalid-feedback" *ngIf="nmbEdad.errors?.required">
-                                    Ingrese una Edad valida por favor.
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Teléfono</label>
-                                <input [ngClass]="{'is-invalid': strTelefono.errors?.required && forma.controls['strTelefono'].touched }" minlength="10" type="text" class="form-control form-control-sm" placeholder="Télefono" name="strTelefono" [(ngModel)]="persona.strTelefono" required
-                                    #strTelefono="ngModel">
-                                <div class="invalid-feedback" *ngIf="strTelefono.errors?.required">
-                                    Ingrese un Télefono valido por favor.
-                                </div>
-                                <div class="text-danger small mt-1" *ngIf="strTelefono.errors?.minlength">
-                                    El telefono debe de tener 10 caracteres minimo
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label>Correo Electrónico</label>
-                                <input [ngClass]="{'is-invalid': strCorreo.errors?.required && forma.controls['strCorreo'].touched }" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" type="text" class="form-control form-control-sm" placeholder="Correo Electronico" name="strCorreo"
-                                    [(ngModel)]="persona.strCorreo" required #strCorreo="ngModel">
-                                <div class="invalid-feedback" *ngIf="strCorreo.errors?.required">
-                                    El Correo es un campo requerido
-                                </div>
-                                <div class="text-danger small mt-1" *ngIf="strCorreo.errors?.pattern">
-                                    Ingrese un Correo valido por favor.
-                                </div>
-                            </div>
+        <div class="card-body">
+            <div class="row">
+                <div id="optionalstuff" class="col-md-6 text-center image-reg">
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12 mt-1">
+                            <h3 class="card-title text-center">Test de Orientación Vocacional</h3>
                         </div>
-                        <div class=" row mt-3">
-                            <div class="col-md-12 text-center">
-                                <button (click)="registrar()" type="button" class="btn btn-outline-info"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
+                        <div class="col-md-12">
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Registrar</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Continuar</a>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <form #registro="ngForm" enctype="multipart/form-data">
+                                        <div class="row mt-2">
+                                            <div class="form-group col-md-12">
+                                                <label>Nombre</label>
+                                                <input [ngClass]="{'is-invalid': (strNombre.errors?.required && registro.controls['strNombre'].touched), 'is-valid' : strNombre.valid }" type="text" class="form-control form-control-sm" placeholder="Nombre" name="strNombre" [(ngModel)]="persona.strNombre"
+                                                    required #strNombre="ngModel">
+                                                <div class="invalid-feedback" *ngIf="strNombre.errors?.required">
+                                                    Ingrese un Nombre valido por favor.
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Apellido Paterno</label>
+                                                <input [ngClass]="{'is-invalid': (strPrimerApellido.errors?.required && registro.controls['strPrimerApellido'].touched), 'is-valid' : strPrimerApellido.valid }" type="text" class="form-control form-control-sm" placeholder="Apellido Paterno" name="strPrimerApellido"
+                                                    [(ngModel)]="persona.strPrimerApellido" required #strPrimerApellido="ngModel">
+                                                <div class="invalid-feedback" *ngIf="strPrimerApellido.errors?.required">
+                                                    Ingrese un Apellido Paterno valido por favor.
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Apellido Materno</label>
+                                                <input [ngClass]="{'is-invalid': (strSegundoApellido.errors?.required && registro.controls['strSegundoApellido'].touched), 'is-valid' : strSegundoApellido.valid }" type="text" class="form-control form-control-sm" placeholder="Apellido Materno" name="strSegundoApellido"
+                                                    [(ngModel)]="persona.strSegundoApellido" required #strSegundoApellido="ngModel">
+                                                <div class="invalid-feedback" *ngIf="strSegundoApellido.errors?.required">
+                                                    Ingrese un Apellido Materno valido por favor.
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Edad</label>
+                                                <input [ngClass]="{'is-invalid': (nmbEdad.errors?.required && registro.controls['nmbEdad'].touched), 'is-valid' : nmbEdad.valid }" type="number" class="form-control form-control-sm" placeholder="Edad" name="nmbEdad" [(ngModel)]="persona.nmbEdad" required
+                                                    #nmbEdad="ngModel">
+                                                <div class="invalid-feedback" *ngIf="nmbEdad.errors?.required">
+                                                    Ingrese una Edad valida por favor.
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Teléfono</label>
+                                                <input [ngClass]="{'is-invalid': (strTelefono.errors?.required && registro.controls['strTelefono'].touched), 'is-valid' : strTelefono.valid }" minlength="10" type="text" class="form-control form-control-sm" placeholder="Télefono" name="strTelefono" [(ngModel)]="persona.strTelefono"
+                                                    required #strTelefono="ngModel">
+                                                <div class="invalid-feedback" *ngIf="strTelefono.errors?.required">
+                                                    Ingrese un Télefono valido por favor.
+                                                </div>
+                                                <div class="text-danger small mt-1" *ngIf="strTelefono.errors?.minlength">
+                                                    El telefono debe de tener 10 caracteres númericos minimo
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label>Correo Electrónico</label>
+                                                <input [ngClass]="{'is-invalid': (strCorreo.errors?.required && registro.controls['strCorreo'].touched), 'is-valid' : strCorreo.valid }" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" type="text" class="form-control form-control-sm" placeholder="Correo Electronico"
+                                                    name="strCorreo" [(ngModel)]="persona.strCorreo" required #strCorreo="ngModel">
+                                                <div class="invalid-feedback" *ngIf="strCorreo.errors?.required">
+                                                    El Correo es un campo requerido
+                                                </div>
+                                                <div class="text-danger small mt-1" *ngIf="strCorreo.errors?.pattern">
+                                                    Ingrese un Correo valido por favor.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class=" row mt-3">
+                                        <div class="col-md-12 text-center">
+                                            <button (click)="registrar()" [disabled]="registro.invalid" type="button" class="btn btn-outline-info"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    <form #continuar="ngForm" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="form-group col-md-12" style="margin-top: 120px;">
+                                                <label>Correo Electrónico</label>
+                                                <input [ngClass]="{'is-invalid': (strCorreo.errors?.required && continuar.controls['strCorreo'].touched), 'is-valid' : strCorreo.valid }" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" type="text" class="form-control form-control-sm" placeholder="Correo Electronico"
+                                                    name="strCorreo" [(ngModel)]="persona.strCorreo" required #strCorreo="ngModel">
+                                                <div class="invalid-feedback" *ngIf="strCorreo.errors?.required">
+                                                    El Correo es un campo requerido
+                                                </div>
+                                                <div class="text-danger small mt-1" *ngIf="strCorreo.errors?.pattern">
+                                                    Ingrese un Correo valido por favor.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class=" row mt-1" style="margin-bottom: 130px;">
+                                        <div class="col-md-12 text-center">
+                                            <button (click)="ingresar()" [disabled]="continuar.invalid" type="button" class="btn btn-outline-info"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>

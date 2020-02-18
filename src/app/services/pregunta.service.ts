@@ -13,11 +13,27 @@ export class PreguntaService {
   constructor( private http: HttpClient ) { }
 
   getPregunta( idPersona: string ) {
-    return this.http.get(`${this.url}pregunta/obtenerAleatorio/${idPersona}`,{}).toPromise();
+    return this.http.get(`${this.url}pregunta/obtenerAleatorio/${idPersona}`).toPromise();
   }
 
-  postResupesta(respuesta: RespuestaModel, idPersona: string) {
+  getSatisfaccion( idPersona: string, idSatisfaccion: string ) {
+    return this.http.get(`${this.url}respuesta/obtenerPorSatisfaccion/${idPersona}/${idSatisfaccion}`).toPromise();
+  }
+
+  getResultado(idPersona: string) {
+    return this.http.get(`${this.url}/respuesta/obtenerResultado/${idPersona}`).toPromise();
+  }
+
+  getCountResp( idPersona: string ) {
+    return this.http.get(`${this.url}respuesta/contadorRespuestas/${idPersona}`).toPromise();
+  }
+
+  postResupesta( respuesta: RespuestaModel, idPersona: string ) {
     return this.http.post(`${this.url}respuesta/registrar/${idPersona}`, respuesta).toPromise();
+  }
+
+  deleteRespuesta( idPersona: string, idRespuesta: string ) {
+    return this.http.delete(`${this.url}respuesta/eliminar/${idPersona}/${idRespuesta}`).toPromise();
   }
 
 }

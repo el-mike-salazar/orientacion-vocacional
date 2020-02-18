@@ -25,7 +25,10 @@ export class TestComponent implements OnInit {
   idPersona: string;
   pregunta: PreguntaModel = new PreguntaModel();
   respuesta = environment.satisfaccion;
-  detalle: boolean;
+  detalle = false;
+  respSat: any[];
+  contador: any[];
+  contadorGral: number;
 
   constructor(private preguntaService: PreguntaService, private activatedRoute: ActivatedRoute, private route: Router) {
     this.idPersona = this.activatedRoute.snapshot.params.idPersona;
@@ -37,6 +40,7 @@ export class TestComponent implements OnInit {
   }
 
   obtenerPregunta() {
+    this.contResp();
     this.preguntaService.getPregunta(this.idPersona).then((data: any) => {
       if (data.cont.ultima) {
         this.route.navigate([`/retroalimentacion/${this.idPersona}`]);
@@ -44,7 +48,7 @@ export class TestComponent implements OnInit {
         this.pregunta = data.cont.pregunta;
       }
     }).catch(err => {
-      console.log(err);
+      // console.log(err);
       Swal.fire({
         title: 'Upssss! Sucedió un problema',
         text: err.error.msg,
@@ -55,14 +59,30 @@ export class TestComponent implements OnInit {
     });
   }
 
-  mostrarDetalle() {
-    if (this.detalle === true) {
+  contResp() {
+    this.preguntaService.getCountResp(this.idPersona).then( (resp: any) => {
+      this.contador = resp.cont.contadores;
+      this.contadorGral = resp.cont.contGral;
+      // console.log(this.contadorGral);
+    }).catch( err => {
+      // console.log(err);
+    });
+  }
+
+  obtenerPorSatisfaccion(idSatisfaccion: string) {
+    this.preguntaService.getSatisfaccion(this.idPersona, idSatisfaccion).then((resp: any) => {
+      this.respSat = resp.cont.respuestas;
+      // console.log(this.respSat);
+      if (this.detalle === true) {
+        this.detalle = false;
+      // console.log(this.detalle);
+      } else {
+        this.detalle = true;
+      // console.log(this.detalle);
+      }
+    }).catch(err => {
       this.detalle = false;
-      console.log(this.detalle);
-    } else {
-      this.detalle = true;
-      console.log(this.detalle);
-    }
+    });
   }
 
   sumarRespuesta(idRespuesta) {
@@ -71,11 +91,18 @@ export class TestComponent implements OnInit {
     respuesta.idSatisfaccion = idRespuesta;
     this.preguntaService.postResupesta(respuesta, this.idPersona).then((resp: any) => {
       this.obtenerPregunta();
-      console.log(resp);
+      this.detalle = false;
+      // console.log(resp);
     }).catch( err=> {
-      console.log(err);
+      // console.log(err);
+      Swal.fire({
+        title: 'Upssss! Sucedió un problema',
+        text: err.error.msg,
+        icon: 'error',
+        confirmButtonText: '<i class="fa fa-check mr-2"></i> Entendido',
+        confirmButtonColor: '#17a2b8'
+      });
     });
-    // console.log(idRespuesta);
   }
 
   removerPregunta(idPregunta) {
@@ -91,13 +118,24 @@ export class TestComponent implements OnInit {
       cancelButtonText: '<i class="fas fa-times-circle"></i> Cancelar'
     }).then((result) => {
       if (result.value) {
+        this.preguntaService.deleteRespuesta(this.idPersona, idPregunta).then( (resp: any) => {
+          this.contResp();
+        }).catch( err => {
+          Swal.fire({
+            title: 'Upssss! Sucedió un problema',
+            text: err.error.msg,
+            icon: 'error',
+            confirmButtonText: '<i class="fa fa-check mr-2"></i> Entendido',
+            confirmButtonColor: '#17a2b8'
+          });
+        });
       // tslint:disable-next-line: only-arrow-functions
         $(document).ready(function() {
             $('#' + idPregunta).remove();
         });
         Toast.fire({
           icon: 'info',
-          title: 'La respuesta fue removida exitosamente'
+          title: 'La respuesta fue removida exitosamente, reaparecerá en breve'
         });
       }
     });

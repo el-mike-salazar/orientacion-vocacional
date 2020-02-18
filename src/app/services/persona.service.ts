@@ -7,11 +7,19 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class PersonaService {
 
-  url =  `${environment.urlGlobal}/persona`;
+  url =  `${environment.urlGlobal}`;
 
   constructor( private http: HttpClient ) { }
 
   postPersona( persona: any ) {
-    return this.http.post(`${this.url}/registrar`, persona).toPromise();
+    return this.http.post(`${this.url}/persona/registrar`, persona).toPromise();
+  }
+
+  getIngresar( correo: string ) {
+    return this.http.get(`${this.url}/persona/obtenerCorreo/${correo}`).toPromise();
+  }
+
+  getPrepa( idPrepa: string) {
+    return this.http.get(`${this.url}/plantel/obtener/${idPrepa}`).toPromise();
   }
 }
