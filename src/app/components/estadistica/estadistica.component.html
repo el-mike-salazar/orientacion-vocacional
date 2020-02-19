@@ -1,31 +1,67 @@
-<div class=" mine-container container">
+<div class="mine-container container">
     <div class="card animated fadeIn" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.541), 0 6px 20px 0 rgba(0, 0, 0, 0.301);">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="card-title text-center text-uppercase">Estadistica</h3>
+                    <h3 class="card-title text-center">Estadística General</h3>
                 </div>
             </div>
-            <div class="row" style="margin-top: 15px;">
+            <div class="row mb-5">
                 <div class="col-md-6">
-                    <h4 class="text-center mt-2 text-uppercase">General</h4>
-                    <div class="container">
-                        <div class="mt-5">
-                            <highcharts-chart [Highcharts]="Highcharts" [constructorType]="chartConstructor" [options]="chartOptions" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
-                        </div>
-                    </div>
+                    <highcharts-chart [Highcharts]="Highcharts" [constructorType]="chartConstructor" [options]="chartOptions" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
                 </div>
                 <div class="col-md-6">
-                    <h4 class="text-center text-uppercase">Por Preparartoria</h4>
+                    <!-- <h5 class="text-center">Por Preparartoria</h5> -->
+                    <table class="table table-borderless table-hover table-sm mt-5">
+                        <thead>
+                            <tr>
+                                <th>Perfil</th>
+                                <th>Siglas</th>
+                                <th>Descripción</th>
+                                <!-- <th>Personas</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let per of perfil">
+                                <td>{{per.strPerfil}}</td>
+                                <td>{{per.strSiglas}}</td>
+                                <td>{{per.strDesc | limitTo:15}}</td>
+                                <!-- <td>100</td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h3 class="card-title text-center">Estadística Por Preparatoria</h3>
+                </div>
+                <div class="col-md-6">
                     <div class="container">
-                        <select class="custom-select mt-1">
-                            <option >---SELECCIONE UNA OPCION---</option>
-                            <option>CBTIS 39</option>
-                            <option>CBTIS 168</option>
-                            <option>Conalep 1</option>
-                            <option>Conalep 2</option>
+                        <select class="custom-select custom-select-sm mt-1">
+                            <option *ngFor="let pre of prepa">{{pre.strNombre}}</option>
                         </select>
                     </div>
+                    <table class="table table-borderless table-hover table-sm mt-5">
+                        <thead>
+                            <tr>
+                                <th>Perfil</th>
+                                <th>Siglas</th>
+                                <th>Descripción</th>
+                                <!-- <th>Personas</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let per of perfil">
+                                <td>{{per.strPerfil}}</td>
+                                <td>{{per.strSiglas}}</td>
+                                <td>{{per.strDesc | limitTo:15}}</td>
+                                <!-- <td>100</td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
                     <div class=" mt-2">
                         <highcharts-chart [Highcharts]="Highcharts2" [constructorType]="chartConstructor2" [options]="chartOptions2" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
                     </div>
@@ -33,9 +69,15 @@
             </div>
         </div>
 
+
+
+
+
+
+        <!-- 
         <div class="row mt-5">
             <div class="container text-center">
-                <h3>Estadistica de: ...</h3>
+                <h3>Perfil</h3>
                 <div class="container mt-3 mb-3">
                     <div class="card ">
 
@@ -73,6 +115,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>

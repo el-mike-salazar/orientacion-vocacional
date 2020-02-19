@@ -14,6 +14,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { IndicacionComponent } from './components/indicacion/indicacion.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EstadisticaComponent } from './components/estadistica/estadistica.component';
+import { LimitToPipe } from './pipes/limit-to.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EstadisticaComponent } from './components/estadistica/estadistica.compo
     FooterComponent,
     RegistroComponent,
     IndicacionComponent,
-    EstadisticaComponent
+    EstadisticaComponent,
+    LimitToPipe
   ],
   imports: [
     BrowserModule,
