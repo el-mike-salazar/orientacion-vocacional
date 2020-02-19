@@ -40,11 +40,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Apellido Materno</label>
-                                                <input [ngClass]="{'is-invalid': (strSegundoApellido.errors?.required && registro.controls['strSegundoApellido'].touched), 'is-valid' : strSegundoApellido.valid }" type="text" class="form-control form-control-sm" placeholder="Apellido Materno" name="strSegundoApellido"
-                                                    [(ngModel)]="persona.strSegundoApellido" required #strSegundoApellido="ngModel">
-                                                <div class="invalid-feedback" *ngIf="strSegundoApellido.errors?.required">
-                                                    Ingrese un Apellido Materno valido por favor.
-                                                </div>
+                                                <input type="text" class="form-control form-control-sm" placeholder="Apellido Materno" name="strSegundoApellido" [(ngModel)]="persona.strSegundoApellido" #strSegundoApellido="ngModel">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Edad</label>

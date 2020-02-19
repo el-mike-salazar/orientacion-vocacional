@@ -51,7 +51,7 @@ export class RegistroComponent implements OnInit {
       this.idPersona = resp.cont.persona._id;
       this.route.navigate([`/indicacion/${this.idPersona}`]);
     }).catch( err => {
-      // console.log(err.error.msg);
+      console.log(err);
       Swal.fire({
         title: 'Upssss! Sucedió un problema',
         text: err.error.msg,
