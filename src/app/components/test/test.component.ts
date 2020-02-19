@@ -29,6 +29,8 @@ export class TestComponent implements OnInit {
   respSat: any[];
   contador: any[];
   contadorGral: number;
+  porGral: any;
+  activo = false;
 
   constructor(private preguntaService: PreguntaService, private activatedRoute: ActivatedRoute, private route: Router) {
     this.idPersona = this.activatedRoute.snapshot.params.idPersona;
@@ -40,6 +42,7 @@ export class TestComponent implements OnInit {
   }
 
   obtenerPregunta() {
+    this.activo = false;
     this.contResp();
     this.preguntaService.getPregunta(this.idPersona).then((data: any) => {
       if (data.cont.ultima) {
@@ -47,6 +50,7 @@ export class TestComponent implements OnInit {
       } else {
         this.pregunta = data.cont.pregunta;
       }
+      this.activo = true;
     }).catch(err => {
       // console.log(err);
       Swal.fire({
@@ -63,7 +67,7 @@ export class TestComponent implements OnInit {
     this.preguntaService.getCountResp(this.idPersona).then( (resp: any) => {
       this.contador = resp.cont.contadores;
       this.contadorGral = resp.cont.contGral;
-      // console.log(this.contadorGral);
+      this.porGral = this.contadorGral * 100 / 60;
     }).catch( err => {
       // console.log(err);
     });

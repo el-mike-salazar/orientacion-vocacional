@@ -11,14 +11,14 @@ import { ResultadoModel } from 'src/app/models/resultado.model';
   styleUrls: ['./retroalimentacion.component.css']
 })
 export class RetroalimentacionComponent implements OnInit {
-  
+
   idPersona: string;
   resultado: ResultadoModel[];
   data: any[];
 
   Highcharts = Highcharts;
   chartConstructor = 'chart';
-  chartOptions = { 
+  chartOptions = {
     chart: {
       plotBackgroundColor: null,
       plotBorderWidth: null,
@@ -57,10 +57,11 @@ export class RetroalimentacionComponent implements OnInit {
     this.data = [];
     this.preguntaService.getResultado(this.idPersona).then( (resp: any) => {
       this.resultado = resp.cont.arrPerfil;
-      this.resultado.forEach( resp =>{
-        this.data.push({name:resp.strPerfil, y: resp.nmbPuntos})
+      // tslint:disable-next-line: no-shadowed-variable
+      this.resultado.forEach( resp => {
+        this.data.push({name: resp.strPerfil, y: resp.nmbPuntos});
       });
-      this.chartOptions = { 
+      this.chartOptions = {
         chart: {
           plotBackgroundColor: null,
           plotBorderWidth: null,
