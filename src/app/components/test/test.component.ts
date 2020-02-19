@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { PreguntaModel } from 'src/app/models/pregunta.model';
+import { PreguntaService } from 'src/app/services/pregunta.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../environments/environment.prod';
+import { RespuestaModel } from 'src/app/models/respuesta.model';
 
 const Toast = Swal.mixin({
   toast: true,
@@ -17,101 +22,91 @@ declare var $: any;
 })
 export class TestComponent implements OnInit {
 
-  pregunta = [
-    '1.	Salir de Excursión',
-    '2.	Armar y desarmar objetos mecánicos',
-    '3.	Resolver mecanizaciones numéricas',
-    '4.	Conocer y estudiar la estructura de las plantas y animales',
-    '5.	Discutir en clase',
-    '6.	Dibujar y pintar a colores',
-    '7.	Escribir cuentos, crónicas o artículos',
-    '8.	Cantar en un coro estudiantil',
-    '9.	Atender y cuidar a los enfermos',
-    '10.	Llevar en orden tus libros y cuadernos',
-    '11.	Pertenecer a un club de exploradores',
-    '12.	Manejar herramientas y maquinaria',
-    '13.	Resolver problemas de aritmética',
-    '14.	Hacer experimentos de biología, física o química',
-    '15.	Ser jefe de un club o sociedad',
-    '16.	Moldear en barro',
-    '17.	Leer obras literarias',
-    '18.	Escuchar música clásica',
-    '19.	Proteger a los muchachos menores del grupo',
-    '20.	Ordenar y clasificar los libros de la biblioteca',
-    '21.	Vivir al aire libre fuera de la ciudad',
-    '22.	Construir objetos o muebles de madera',
-    '23.	Levantar las cuentas de una cooperativa escolar',
-    '24.	Investigar el origen de las costumbres de los pueblos',
-    '25.	Dirigir la campaña política de un candidato estudiantil',
-    '26.	Encargarte del decorado de una exposición escolar',
-    '27.	Hacer versos para un periódico estudiantil',
-    '28.	Aprender a tocar un instrumento musical',
-    '29.	Ser miembro de una sociedad de ayuda asistencial',
-    '30.	Aprender a escribir a máquina y taquigrafía',
-    '31.	Sembrar y plantar en una granja durante las vacaciones',
-    '32.	Reparar las instalaciones eléctricas de casa',
-    '33.	Explicar a otros cómo resolver problemas de aritmética',
-    '34.	Estudiar y entender las causas de los movimientos sociales',
-    '35.	Hacer propaganda para la venta de un periódico estudiantil',
-    '36.	Idear y diseñar el escudo de un club o sociedad',
-    '37.	Representar un papel en una obra teatral',
-    '38.	Ser miembro de una asociación musical',
-    '39.	Enseñar a leer a los analfabetos',
-    '40.	Ayudar a clasificar pruebas',
-    '41.	Criar animales en un rancho durante las vacaciones',
-    '42.	Poyectár o dirigir la construcción de un pozo o noria',
-    '43.	Participar en un concurso de arimética',
-    '44.	Leer revistas y libros científicos',
-    '45.	Leer biografías de políticos prominentes',
-    '46.	Diseñar el vestuario para una función teatral',
-    '47.	Participar en un concurso de oratoria',
-    '48.	Leer biografías de músicos eminentes',
-    '49.	Ayudar a sus compañeros en sus difilcultades y preocupaciones',
-    '50.	Encargarte del archivo y los documentos de una sociedad',
-    '51.	Técnico agrícola en una región algodonera',
-    '52.	Perito mecánico en una gran empresa o taller',
-    '53.	Experto calculista en una industria',
-    '54.	Investigador en un laboratorio de biología, física o química',
-    '55.	Agente de ventas en una empresa comercial',
-    '56.	Perito dibujante en una empresa industrial',
-    '57.	Redactor en un periódico',
-    '58.	Músico de una sinfónica',
-    '59.	Misionero al servicio de las clases humildes',
-    '60.	Técnico organizador de oficinas'
-  ];
+  idPersona: string;
+  pregunta: PreguntaModel = new PreguntaModel();
+  respuesta = environment.satisfaccion;
+  detalle = false;
+  respSat: any[];
+  contador: any[];
+  contadorGral: number;
+  porGral: any;
+  activo = false;
 
-  uno = [];
-  dos = [];
-  tres = [];
-  cuatro = [];
-  cinco = [];
-
-  detalle: boolean;
-
-  constructor() { }
+  constructor(private preguntaService: PreguntaService, private activatedRoute: ActivatedRoute, private route: Router) {
+    this.idPersona = this.activatedRoute.snapshot.params.idPersona;
+   }
 
   ngOnInit() {
     $('[data-toggle="tooltip"]').tooltip();
-    // Swal.fire({
-    //   title: 'Antes de Comenzar!',
-    //   text: 'En base a la pregunta, selecciona uno de los Emojis',
-    //   icon: 'info',
-    //   confirmButtonText: 'De Acuerdo',
-    // });
+    this.obtenerPregunta();
   }
 
-  mostrarDetalle() {
-    if (this.detalle === true) {
+  obtenerPregunta() {
+    this.activo = false;
+    this.contResp();
+    this.preguntaService.getPregunta(this.idPersona).then((data: any) => {
+      if (data.cont.ultima) {
+        this.route.navigate([`/retroalimentacion/${this.idPersona}`]);
+      } else {
+        this.pregunta = data.cont.pregunta;
+      }
+      this.activo = true;
+    }).catch(err => {
+      // console.log(err);
+      Swal.fire({
+        title: 'Upssss! Sucedió un problema',
+        text: err.error.msg,
+        icon: 'error',
+        confirmButtonText: '<i class="fa fa-check mr-2"></i> Entendido',
+        confirmButtonColor: '#17a2b8'
+      });
+    });
+  }
+
+  contResp() {
+    this.preguntaService.getCountResp(this.idPersona).then( (resp: any) => {
+      this.contador = resp.cont.contadores;
+      this.contadorGral = resp.cont.contGral;
+      this.porGral = this.contadorGral * 100 / 60;
+    }).catch( err => {
+      // console.log(err);
+    });
+  }
+
+  obtenerPorSatisfaccion(idSatisfaccion: string) {
+    this.preguntaService.getSatisfaccion(this.idPersona, idSatisfaccion).then((resp: any) => {
+      this.respSat = resp.cont.respuestas;
+      // console.log(this.respSat);
+      if (this.detalle === true) {
+        this.detalle = false;
+      // console.log(this.detalle);
+      } else {
+        this.detalle = true;
+      // console.log(this.detalle);
+      }
+    }).catch(err => {
       this.detalle = false;
-      console.log(this.detalle);
-    } else {
-      this.detalle = true;
-      console.log(this.detalle);
-    }
+    });
   }
 
   sumarRespuesta(idRespuesta) {
-    console.log(idRespuesta);
+    const respuesta: RespuestaModel = new RespuestaModel();
+    respuesta.idPregunta = this.pregunta._id;
+    respuesta.idSatisfaccion = idRespuesta;
+    this.preguntaService.postResupesta(respuesta, this.idPersona).then((resp: any) => {
+      this.obtenerPregunta();
+      this.detalle = false;
+      // console.log(resp);
+    }).catch( err => {
+      // console.log(err);
+      Swal.fire({
+        title: 'Upssss! Sucedió un problema',
+        text: err.error.msg,
+        icon: 'error',
+        confirmButtonText: '<i class="fa fa-check mr-2"></i> Entendido',
+        confirmButtonColor: '#17a2b8'
+      });
+    });
   }
 
   removerPregunta(idPregunta) {
@@ -127,13 +122,24 @@ export class TestComponent implements OnInit {
       cancelButtonText: '<i class="fas fa-times-circle"></i> Cancelar'
     }).then((result) => {
       if (result.value) {
+        this.preguntaService.deleteRespuesta(this.idPersona, idPregunta).then( (resp: any) => {
+          this.contResp();
+        }).catch( err => {
+          Swal.fire({
+            title: 'Upssss! Sucedió un problema',
+            text: err.error.msg,
+            icon: 'error',
+            confirmButtonText: '<i class="fa fa-check mr-2"></i> Entendido',
+            confirmButtonColor: '#17a2b8'
+          });
+        });
       // tslint:disable-next-line: only-arrow-functions
         $(document).ready(function() {
             $('#' + idPregunta).remove();
         });
         Toast.fire({
           icon: 'info',
-          title: 'La respuesta fue removida exitosamente'
+          title: 'La respuesta fue removida exitosamente, reaparecerá en breve'
         });
       }
     });

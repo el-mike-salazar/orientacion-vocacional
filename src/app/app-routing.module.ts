@@ -8,11 +8,11 @@ import { EstadisticaComponent } from './components/estadistica/estadistica.compo
 
 
 const routes: Routes = [
-  {path: 'registro', component: RegistroComponent},
-  {path: 'indicacion', component: IndicacionComponent},
+  {path: 'registro/:idPreparatoria', component: RegistroComponent},
+  {path: 'indicacion/:idPersona', component: IndicacionComponent},
+  {path: 'test/:idPersona', component: TestComponent},
+  {path: 'retroalimentacion/:idPersona', component: RetroalimentacionComponent},
   {path: 'estadistica', component: EstadisticaComponent},
-  {path: 'test', component: TestComponent},
-  {path: 'retroalimentacion', component: RetroalimentacionComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'registro' }
 ];
 
