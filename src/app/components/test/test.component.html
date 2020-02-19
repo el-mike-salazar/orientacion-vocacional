@@ -3,13 +3,13 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-12 text-right">
-                            <div class="progress">
+                    <!-- <div class="row">
+                        <div class="col-md-12">
+                            <div class="progress" style="margin-top: -15px;">
                                 <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [style.width]="porGral + '%'" aria-valuenow="contadorGral" aria-valuemin="0" aria-valuemax="60">{{contadorGral}}/60</div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <h1 class="card-title text-center">¿Qué tanto te agrada?</h1>
                     <h2 *ngIf="pregunta.strPregunta" class="card-subtitle mb-2 text-muted text-center animated fadeIn">{{pregunta.strPregunta}}</h2>
                 </div>
@@ -58,7 +58,14 @@
                 </div>
                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
             </div>
-            <div class="row" *ngIf="detalle" style="margin-top: 60px;">
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-12">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [style.width]="porGral + '%'" aria-valuenow="contadorGral" aria-valuemin="0" aria-valuemax="60">{{contadorGral}}/60</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="detalle">
                 <div class="col-12 animated fadeIn fast">
                     <span id="{{item._id}}" (click)="removerPregunta(item._id)" *ngFor="let item of respSat" class="badge badge-info cursor-bad mr-2">{{item.idPregunta.strPregunta}} <i class="fas fa-times-circle"></i></span>
                 </div>
