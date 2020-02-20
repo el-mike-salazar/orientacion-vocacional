@@ -3,13 +3,6 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <!-- <div class="row">
-                        <div class="col-md-12">
-                            <div class="progress" style="margin-top: -15px;">
-                                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [style.width]="porGral + '%'" aria-valuenow="contadorGral" aria-valuemin="0" aria-valuemax="60">{{contadorGral}}/60</div>
-                            </div>
-                        </div>
-                    </div> -->
                     <h1 class="card-title text-center">¿Qué tanto te agrada?</h1>
                     <h2 *ngIf="pregunta.strPregunta" class="card-subtitle mb-2 text-muted text-center animated fadeIn">{{pregunta.strPregunta}}</h2>
                 </div>
@@ -20,7 +13,7 @@
                     <img class="img-form grow" [ngClass]="{'image-dis': !activo}" data-toggle="tooltip" data-placement="top" title="Me agrada bastante" src="../../../assets/5.png" (click)="sumarRespuesta(respuesta[4])">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <span (click)="obtenerPorSatisfaccion(respuesta[4])" data-toggle="tooltip" data-placement="bottom" title="Ver respuestas asignadas" class="badge badge-info b-position cursor-bad">{{ contador ? contador[4].cont : 0}} <i class="fas fa-check-circle"></i></span>
+                            <span (click)="obtenerPorSatisfaccion(respuesta[4])" data-toggle="tooltip" data-placement="bottom" title="Ver respuestas asignadas" class="badge badge-info b-position cursor-bad">{{ contador ? contador[4].cont : 0}} <i class="fas fa-chevron-circle-down"></i></span>
                         </div>
                     </div>
                 </div>
@@ -28,7 +21,7 @@
                     <img class="img-form grow" [ngClass]="{'image-dis': !activo}" data-toggle="tooltip" data-placement="top" title="Me agrada algo o en parte" src="../../../assets/4.png" (click)="sumarRespuesta(respuesta[3])">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <span (click)="obtenerPorSatisfaccion(respuesta[3])" data-toggle="tooltip" data-placement="bottom" title="Ver respuestas asignadas" class="badge badge-info b-position cursor-bad">{{contador ? contador[3].cont : 0}} <i class="fas fa-check-circle"></i></span>
+                            <span (click)="obtenerPorSatisfaccion(respuesta[3])" data-toggle="tooltip" data-placement="bottom" title="Ver respuestas asignadas" class="badge badge-info b-position cursor-bad">{{contador ? contador[3].cont : 0}} <i class="fas fa-chevron-circle-down"></i></span>
                         </div>
                     </div>
                 </div>
@@ -36,7 +29,7 @@
                     <img class="img-form grow" [ngClass]="{'image-dis': !activo}" data-toggle="tooltip" data-placement="top" title="Me es indiferente, pues ni me gusta, ni me disgusta" src="../../../assets/3.png" (click)="sumarRespuesta(respuesta[2])">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <span (click)="obtenerPorSatisfaccion(respuesta[2])" data-toggle="tooltip" data-placement="bottom" title="Ver respuestas asignadas" class="badge badge-info b-position cursor-bad">{{contador ? contador[2].cont : 0}} <i class="fas fa-check-circle"></i></span>
+                            <span (click)="obtenerPorSatisfaccion(respuesta[2])" data-toggle="tooltip" data-placement="bottom" title="Ver respuestas asignadas" class="badge badge-info b-position cursor-bad">{{contador ? contador[2].cont : 0}} <i class="fas fa-chevron-circle-down"></i></span>
                         </div>
                     </div>
                 </div>
@@ -44,7 +37,7 @@
                     <img class="img-form grow" [ngClass]="{'image-dis': !activo}" data-toggle="tooltip" data-placement="top" title="Me desagrada algo o en parte" src="../../../assets/2.png" (click)="sumarRespuesta(respuesta[1])">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <span (click)="obtenerPorSatisfaccion(respuesta[1])" data-toggle="tooltip" data-placement="bottom" title="Ver respuestas asignadas" class="badge badge-info b-position cursor-bad">{{contador ? contador[1].cont : 0}} <i class="fas fa-check-circle"></i></span>
+                            <span (click)="obtenerPorSatisfaccion(respuesta[1])" data-toggle="tooltip" data-placement="bottom" title="Ver respuestas asignadas" class="badge badge-info b-position cursor-bad">{{contador ? contador[1].cont : 0}} <i class="fas fa-chevron-circle-down"></i></span>
                         </div>
                     </div>
                 </div>
@@ -52,7 +45,7 @@
                     <img class="img-form grow" [ngClass]="{'image-dis': !activo}" data-toggle="tooltip" data-placement="top" title="Me desagrada mucho o totalmente" src="../../../assets/1.png" (click)="sumarRespuesta(respuesta[0])">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <span (click)="obtenerPorSatisfaccion(respuesta[0])" data-toggle="tooltip" data-placement="bottom" title="Ver respuestas asignadas" class="badge badge-info b-position cursor-bad">{{contador ? contador[0].cont : 0}} <i class="fas fa-check-circle"></i></span>
+                            <span (click)="obtenerPorSatisfaccion(respuesta[0])" data-toggle="tooltip" data-placement="bottom" title="Ver respuestas asignadas" class="badge badge-info b-position cursor-bad">{{contador ? contador[0].cont : 0}} <i class="fas fa-chevron-circle-down"></i></span>
                         </div>
                     </div>
                 </div>
