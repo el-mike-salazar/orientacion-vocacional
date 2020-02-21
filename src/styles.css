@@ -28,3 +28,9 @@
 .fadeIn {
     animation-name: fadeIn;
 }
+
+.highcharts-credits {
+    pointer-events: none;
+    color: white !important;
+    fill: white !important;
+}

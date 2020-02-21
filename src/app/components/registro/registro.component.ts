@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { PersonaModel } from 'src/app/models/persona.model';
 import { PersonaService } from 'src/app/services/persona.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../environments/environment.prod';
 
 
 @Component({
@@ -17,8 +18,9 @@ export class RegistroComponent implements OnInit {
   idPreparatoria: string;
   strPreparatoria: string;
   idPersona: string;
+  generalP = environment.general;
 
-  constructor( private personaService: PersonaService, private activatedRoute: ActivatedRoute, private route: Router ) { 
+  constructor( private personaService: PersonaService, private activatedRoute: ActivatedRoute, private route: Router ) {
     this.idPreparatoria = this.activatedRoute.snapshot.params.idPreparatoria;
   }
 
@@ -39,7 +41,8 @@ export class RegistroComponent implements OnInit {
       // console.log(this.strPreparatoria);
     }).catch( err => {
       // console.log(err);
-      this.route.navigate([`registro/5e4c3bee0ac8953c2c593390`]);
+      this.route.navigate([`registro/${this.generalP}`]);
+      this.idPreparatoria = this.generalP;
     });
   }
 
@@ -63,10 +66,10 @@ export class RegistroComponent implements OnInit {
   }
 
   ingresar() {
-    this.personaService.getIngresar(this.persona.strCorreo).then( (resp:any) => {
+    this.personaService.getIngresar(this.persona.strCorreo).then( (resp: any) => {
       this.idPersona = resp.cont.persona._id;
       this.route.navigate([`/test/${this.idPersona}`]);
-    }).catch( err =>{
+    }).catch( err => {
       // console.log(err.error.msg);
       Swal.fire({
         title: 'Upssss! Sucedió un problema',

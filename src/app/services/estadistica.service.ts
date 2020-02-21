@@ -18,4 +18,13 @@ export class EstadisticaService {
   getPrepa() {
     return this.http.get(`${this.url}/plantel/obtener`).toPromise();
   }
+
+  getEstadisticaPrepa(idPlantel: string) {
+    return this.http.get(`${this.url}/respuesta/obtenerPerfiles/${idPlantel}`).toPromise();
+  }
+
+  getEstadistica() {
+    return this.http.get(`${this.url}/respuesta/obtenerPerfiles`).toPromise();
+  }
+
 }
