@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  urlGlobal: 'http://localhost:3000/api',
+  urlGlobal: 'http://172.17.1.4:3000/api',
   satisfaccion: {
     0: '5e41bc702ae765177c24ff8d',
     1: '5e41bc762ae765177c24ff8f',

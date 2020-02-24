@@ -11,3 +11,10 @@ export class PerfilGralModel {
     strNombre: string;
     nmbPersonas: number;
 }
+
+export class PerfilGralModelRango {
+    // tslint:disable-next-line: variable-name
+    _id?: string;
+    strNombre: string;
+    nmbPersonas: number;
+}

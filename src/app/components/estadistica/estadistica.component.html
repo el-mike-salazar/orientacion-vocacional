@@ -1,5 +1,5 @@
 <div class="mine-container container">
-    <div class="card animated fadeIn" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.541), 0 6px 20px 0 rgba(0, 0, 0, 0.301);">
+    <div class="card animated fadeIn card-shadow">
         <div class="card-body">
             <!-- General -->
             <div class="row mt-5">
@@ -57,21 +57,21 @@
                 </div>
             </div>
             <!-- Filtro Rango de Fecha -->
-            <div class="row mt-5">
+            <div class="row mt-5 mb-5">
                 <div class="col-md-12 mb-5">
                     <h3 class="card-title text-center">Estadística General por Rango de Fechas</h3>
                 </div>
                 <div class="col-4 form-group">
-                    <input type="date" class="form-control form-control-sm" name="fechaInicio">
+                    <input type="date" class="form-control form-control-sm" name="fechaInicio" [(ngModel)]="fechaInicio">
                 </div>
                 <div class="col-4 form-group">
-                    <input type="date" class="form-control form-control-sm" name="fechaFin">
+                    <input type="date" class="form-control form-control-sm" name="fechaFin" [(ngModel)]="fechaFin">
                 </div>
                 <div class="col-4">
-                    <button type="button" class="btn btn-outline-info btn-sm btn-block"><i class="fa fa-search mr-2"></i>Buscar</button>
+                    <button type="button" class="btn btn-outline-info btn-sm btn-block" (click)="compararFechas(fechaInicio, fechaFin)"><i class="fa fa-search mr-2"></i>Buscar</button>
                 </div>
                 <div class="col-md-6 mt-5">
-                    <highcharts-chart class="mt-4" [Highcharts]="HighchartsGral" [constructorType]="chartConstructorGral" [options]="chartOptionsGral" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+                    <highcharts-chart *ngIf="dataGralNameRango && dataGralNameRango.length>1" class="mt-4" [Highcharts]="HighchartsGralRango" [constructorType]="chartConstructorGralRango" [options]="chartOptionsGralRango" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
                 </div>
                 <div class="col-md-6">
                     <table class="table table-borderless table-hover table-striped table-sm mt-5">
@@ -81,8 +81,8 @@
                                 <th class="col-4">Número de Personas</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="d-flex animated fadeIn" *ngFor="let per of perfilGral; let i = index">
+                        <tbody *ngIf="dataGralNameRango && dataGralNameRango.length>1">
+                            <tr class="d-flex animated fadeIn" *ngFor="let per of perfilGralRango; let i = index">
                                 <td class="col-8">{{i+1}} - {{per.strNombre}}</td>
                                 <td class="col-4 text-center">{{per.nmbPersonas}}</td>
                             </tr>

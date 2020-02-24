@@ -1,9 +1,10 @@
 <div class="mine-container container">
-    <div class="card animated fadeIn" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.541), 0 6px 20px 0 rgba(0, 0, 0, 0.301);">
+    <div class="card animated fadeIn card-shadow">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="card-title text-center">¿Qué tanto te agrada?</h1>
+                    <h1 *ngIf="pregunta.strTipo === '1'" class="card-title text-center">¿Qué tanto te agrada?</h1>
+                    <h1 *ngIf="pregunta.strTipo === '2'" class="card-title text-center">¿Qué tanto te gustaria trabajar como...?</h1>
                     <h2 *ngIf="pregunta.strPregunta" class="card-subtitle mb-2 text-muted text-center animated fadeIn">{{pregunta.strPregunta}}</h2>
                 </div>
             </div>

@@ -27,4 +27,8 @@ export class EstadisticaService {
     return this.http.get(`${this.url}/respuesta/obtenerPerfiles`).toPromise();
   }
 
+  getEstadisticaRango(fechaInicio: Date, fechaFin: Date) {
+    return this.http.get(`${this.url}/respuesta/obtenerPerfiles/${fechaInicio}/${fechaFin}`).toPromise();
+  }
+
 }
