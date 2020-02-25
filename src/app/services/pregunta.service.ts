@@ -8,16 +8,16 @@ import { RespuestaModel } from '../models/respuesta.model';
 })
 export class PreguntaService {
 
-  url =  `${environment.urlGlobal}/`;
+  url =  `${environment.urlGlobal}`;
 
   constructor( private http: HttpClient ) { }
 
   getPregunta( idPersona: string ) {
-    return this.http.get(`${this.url}pregunta/obtenerAleatorio/${idPersona}`).toPromise();
+    return this.http.get(`${this.url}/pregunta/obtenerAleatorio/${idPersona}`).toPromise();
   }
 
   getSatisfaccion( idPersona: string, idSatisfaccion: string ) {
-    return this.http.get(`${this.url}respuesta/obtenerPorSatisfaccion/${idPersona}/${idSatisfaccion}`).toPromise();
+    return this.http.get(`${this.url}/respuesta/obtenerPorSatisfaccion/${idPersona}/${idSatisfaccion}`).toPromise();
   }
 
   getResultado(idPersona: string) {
@@ -25,15 +25,15 @@ export class PreguntaService {
   }
 
   getCountResp( idPersona: string ) {
-    return this.http.get(`${this.url}respuesta/contadorRespuestas/${idPersona}`).toPromise();
+    return this.http.get(`${this.url}/respuesta/contadorRespuestas/${idPersona}`).toPromise();
   }
 
   postResupesta( respuesta: RespuestaModel, idPersona: string ) {
-    return this.http.post(`${this.url}respuesta/registrar/${idPersona}`, respuesta).toPromise();
+    return this.http.post(`${this.url}/respuesta/registrar/${idPersona}`, respuesta).toPromise();
   }
 
   deleteRespuesta( idPersona: string, idRespuesta: string ) {
-    return this.http.delete(`${this.url}respuesta/eliminar/${idPersona}/${idRespuesta}`).toPromise();
+    return this.http.delete(`${this.url}/respuesta/eliminar/${idPersona}/${idRespuesta}`).toPromise();
   }
 
 }

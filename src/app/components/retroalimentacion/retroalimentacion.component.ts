@@ -42,11 +42,11 @@ export class RetroalimentacionComponent implements OnInit {
         }
     },
     series: [{
-        name: '% de Coincidencia',
-        colorByPoint: true,
-        data: []
+      name: '% de Coincidencia',
+      colorByPoint: true,
+      data: []
     }]
-};
+  };
 
 
   constructor( private preguntaService: PreguntaService, private activatedRoute: ActivatedRoute) {
@@ -88,7 +88,8 @@ export class RetroalimentacionComponent implements OnInit {
           name: '% de Coincidencia',
           colorByPoint: true,
           data: this.data
-      }]};
+      }]
+    };
     }).catch( err => {
       Swal.fire({
         title: 'Upssss! Sucedió un problema',
@@ -99,5 +100,4 @@ export class RetroalimentacionComponent implements OnInit {
       });
     });
   }
-
 }

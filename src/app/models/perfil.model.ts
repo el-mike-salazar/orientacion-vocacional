@@ -1,8 +1,20 @@
 export class PerfilModel {
     // tslint:disable-next-line: variable-name
     _id?: string;
-    strPerfil: string;
-    strSiglas: string;
-    strDesc: string;
-    arrPregunta: {};
+    strNombre: string;
+    nmbPersonas: number;
+}
+
+export class PerfilGralModel {
+    // tslint:disable-next-line: variable-name
+    _id?: string;
+    strNombre: string;
+    nmbPersonas: number;
+}
+
+export class PerfilGralModelRango {
+    // tslint:disable-next-line: variable-name
+    _id?: string;
+    strNombre: string;
+    nmbPersonas: number;
 }

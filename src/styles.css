@@ -28,3 +28,18 @@
 .fadeIn {
     animation-name: fadeIn;
 }
+
+.highcharts-credits {
+    pointer-events: none;
+    color: white !important;
+    fill: white !important;
+}
+
+.mine-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.card-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.541), 0 6px 20px 0 rgba(0, 0, 0, 0.479);
+}

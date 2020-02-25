@@ -36,18 +36,19 @@ export class TestComponent implements OnInit {
     this.idPersona = this.activatedRoute.snapshot.params.idPersona;
    }
 
-  ngOnInit() {
+  async ngOnInit() {
     $('[data-toggle="tooltip"]').tooltip();
-    this.obtenerPregunta();
+    await this.obtenerPregunta();
   }
 
-  obtenerPregunta() {
+  async obtenerPregunta() {
     this.activo = false;
-    this.contResp();
-    this.preguntaService.getPregunta(this.idPersona).then((data: any) => {
+    await this.contResp();
+    await this.preguntaService.getPregunta(this.idPersona).then((data: any) => {
       if (data.cont.ultima) {
         this.route.navigate([`/retroalimentacion/${this.idPersona}`]);
       } else {
+        // console.log(data);
         this.pregunta = data.cont.pregunta;
       }
       this.activo = true;
@@ -63,8 +64,8 @@ export class TestComponent implements OnInit {
     });
   }
 
-  contResp() {
-    this.preguntaService.getCountResp(this.idPersona).then( (resp: any) => {
+  async contResp() {
+    await this.preguntaService.getCountResp(this.idPersona).then( (resp: any) => {
       this.contador = resp.cont.contadores;
       this.contadorGral = resp.cont.contGral;
       this.porGral = this.contadorGral * 100 / 60;
@@ -73,8 +74,8 @@ export class TestComponent implements OnInit {
     });
   }
 
-  obtenerPorSatisfaccion(idSatisfaccion: string) {
-    this.preguntaService.getSatisfaccion(this.idPersona, idSatisfaccion).then((resp: any) => {
+  async obtenerPorSatisfaccion(idSatisfaccion: string) {
+    await this.preguntaService.getSatisfaccion(this.idPersona, idSatisfaccion).then((resp: any) => {
       this.respSat = resp.cont.respuestas;
       // console.log(this.respSat);
       if (this.detalle === true) {
@@ -89,11 +90,11 @@ export class TestComponent implements OnInit {
     });
   }
 
-  sumarRespuesta(idRespuesta) {
+  async sumarRespuesta(idRespuesta) {
     const respuesta: RespuestaModel = new RespuestaModel();
     respuesta.idPregunta = this.pregunta._id;
     respuesta.idSatisfaccion = idRespuesta;
-    this.preguntaService.postResupesta(respuesta, this.idPersona).then((resp: any) => {
+    await this.preguntaService.postResupesta(respuesta, this.idPersona).then((resp: any) => {
       this.obtenerPregunta();
       this.detalle = false;
       // console.log(resp);
@@ -109,7 +110,7 @@ export class TestComponent implements OnInit {
     });
   }
 
-  removerPregunta(idPregunta) {
+  async removerPregunta(idPregunta) {
 
     Swal.fire({
       title: 'Estas a punto de quitar esta respuesta',
@@ -120,9 +121,9 @@ export class TestComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: '<i class="fas fa-check-circle"></i> Continuar',
       cancelButtonText: '<i class="fas fa-times-circle"></i> Cancelar'
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.value) {
-        this.preguntaService.deleteRespuesta(this.idPersona, idPregunta).then( (resp: any) => {
+        await this.preguntaService.deleteRespuesta(this.idPersona, idPregunta).then( (resp: any) => {
           this.contResp();
         }).catch( err => {
           Swal.fire({
