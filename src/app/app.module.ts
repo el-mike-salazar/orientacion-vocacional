@@ -15,6 +15,7 @@ import { IndicacionComponent } from './components/indicacion/indicacion.componen
 import { HttpClientModule } from '@angular/common/http';
 import { EstadisticaComponent } from './components/estadistica/estadistica.component';
 import { LimitToPipe } from './pipes/limit-to.pipe';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { LimitToPipe } from './pipes/limit-to.pipe';
     ReactiveFormsModule,
 
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
