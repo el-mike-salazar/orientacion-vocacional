@@ -53,13 +53,17 @@ export class RetroalimentacionComponent implements OnInit {
     this.idPersona = this.activatedRoute.snapshot.params.idPersona;
    }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.data = [];
-    this.preguntaService.getResultado(this.idPersona).then( (resp: any) => {
+    await this.preguntaService.getResultado(this.idPersona).then( async (resp: any) => {
+      // tslint:disable-next-line: only-arrow-functions
+      resp.cont.arrPerfil.sort(function(a, b) {
+        return b.nmbPuntos - a.nmbPuntos;
+      });
       this.resultado = resp.cont.arrPerfil;
       // tslint:disable-next-line: no-shadowed-variable
-      this.resultado.forEach( resp => {
-        this.data.push({name: resp.strPerfil, y: resp.nmbPuntos});
+      this.resultado.forEach(resp => {
+        this.data.push({ name: resp.strPerfil, y: resp.nmbPuntos });
       });
       this.chartOptions = {
         chart: {
