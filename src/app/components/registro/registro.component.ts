@@ -24,18 +24,18 @@ export class RegistroComponent implements OnInit {
     this.idPreparatoria = this.activatedRoute.snapshot.params.idPreparatoria;
   }
 
-  ngOnInit() {
-    Swal.fire({
-      title: '¡Bienvenido!',
+  async ngOnInit() {
+    await this.verificarPrepa();
+    await Swal.fire({
+      title: `¡Bienvenido!`,
       text: 'Este es un Test que te puede ayudar a decidir que carrera elegir.',
       icon: 'info',
       confirmButtonText: '<i class="fa fa-check mr-2"></i> Entendido',
       confirmButtonColor: '#17a2b8'
     });
-    this.verificarPrepa();
   }
 
-  verificarPrepa() {
+  async verificarPrepa() {
     this.personaService.getPrepa(this.idPreparatoria).then( (resp: any) => {
       this.strPreparatoria = resp.cont.plantel.strNombre;
       // console.log(this.strPreparatoria);
