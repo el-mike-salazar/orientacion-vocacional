@@ -36,4 +36,9 @@ export class PreguntaService {
     return this.http.delete(`${this.url}/respuesta/eliminar/${idPersona}/${idRespuesta}`).toPromise();
   }
 
+  deleteTest(idPersona: string) {
+    return this.http.delete(`${this.url}/respuesta/resetearTest/${idPersona}`).toPromise();
+
+  }
+
 }

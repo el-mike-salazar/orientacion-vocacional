@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { PreguntaService } from 'src/app/services/pregunta.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ResultadoModel } from 'src/app/models/resultado.model';
 
@@ -49,7 +49,7 @@ export class RetroalimentacionComponent implements OnInit {
   };
 
 
-  constructor( private preguntaService: PreguntaService, private activatedRoute: ActivatedRoute) {
+  constructor( private preguntaService: PreguntaService, private activatedRoute: ActivatedRoute, private route: Router) {
     this.idPersona = this.activatedRoute.snapshot.params.idPersona;
    }
 
@@ -95,6 +95,22 @@ export class RetroalimentacionComponent implements OnInit {
       }]
     };
     }).catch( err => {
+      Swal.fire({
+        title: 'Upssss! Sucedió un problema',
+        text: err.error.msg,
+        icon: 'error',
+        confirmButtonText: '<i class="fa fa-check mr-2"></i> Entendido',
+        confirmButtonColor: '#17a2b8'
+      });
+    });
+  }
+
+  nuevoIntento() {
+    this.preguntaService.deleteTest(this.idPersona).then( resp => {
+      // console.log(resp);
+      this.route.navigate([`/test/${this.idPersona}`]);
+    }).catch(err => {
+      console.log(err);
       Swal.fire({
         title: 'Upssss! Sucedió un problema',
         text: err.error.msg,

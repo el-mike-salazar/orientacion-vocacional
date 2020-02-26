@@ -13,6 +13,11 @@
                 <div class="col-md-6">
                     <h4 class="card-subtitle mb-2 text-muted text-center">{{resultado ? resultado[0].strPerfil: 'Perfil'}}</h4>
                     <p class="card-text">{{resultado ? resultado[0].strDesc: 'Descripción'}}</p>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-outline-info" (click)="nuevoIntento()"><i class="fas fa-redo"></i> Intentarlo de Nuevo</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
