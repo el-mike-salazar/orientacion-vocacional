@@ -31,6 +31,7 @@ export class TestComponent implements OnInit {
   contadorGral: number;
   porGral: any;
   activo = false;
+  total: number;
 
   constructor(private preguntaService: PreguntaService, private activatedRoute: ActivatedRoute, private route: Router) {
     this.idPersona = this.activatedRoute.snapshot.params.idPersona;
@@ -48,8 +49,10 @@ export class TestComponent implements OnInit {
       if (data.cont.ultima) {
         this.route.navigate([`/retroalimentacion/${this.idPersona}`]);
       } else {
-        // console.log(data);
         this.pregunta = data.cont.pregunta;
+        this.total = data.cont.count;
+        // console.log(this.pregunta);
+        // console.log(this.total);
       }
       this.activo = true;
     }).catch(err => {
@@ -144,5 +147,10 @@ export class TestComponent implements OnInit {
         });
       }
     });
+  }
+
+  registro() {
+    // console.log('Regresar');
+    this.route.navigate(['/test']);
   }
 }

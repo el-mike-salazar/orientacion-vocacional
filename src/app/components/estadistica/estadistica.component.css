@@ -24,3 +24,15 @@
         opacity: 1;
     }
 }
+
+@media (max-width:768px) {
+    h3#title {
+        font-size: 18px;
+    }
+    th#parr {
+        font-size: 14px;
+    }
+    td#parr {
+        font-size: 14px;
+    }
+}

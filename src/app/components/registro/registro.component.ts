@@ -28,7 +28,8 @@ export class RegistroComponent implements OnInit {
     await this.verificarPrepa();
     await Swal.fire({
       title: `¡Bienvenido!`,
-      text: 'Este es un Test que te puede ayudar a decidir que carrera elegir.',
+      // tslint:disable-next-line: max-line-length
+      text: 'Este es un Test que te puede ayudar a decidir que carrera elegir, si tienes un registro previo selecciona la pestaña CONTINUAR',
       icon: 'info',
       confirmButtonText: '<i class="fa fa-check mr-2"></i> Entendido',
       confirmButtonColor: '#17a2b8'

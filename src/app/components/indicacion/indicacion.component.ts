@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+declare var $: any;
+
 @Component({
   selector: 'app-indicacion',
   templateUrl: './indicacion.component.html',
@@ -15,10 +17,14 @@ export class IndicacionComponent implements OnInit {
    }
 
   ngOnInit() {
+    $('[data-toggle="tooltip"]').tooltip();
   }
 
   siguiente() {
     this.route.navigate([`/test/${this.idPersona}`]);
   }
 
+  registro() {
+    this.route.navigate(['/test']);
+  }
 }

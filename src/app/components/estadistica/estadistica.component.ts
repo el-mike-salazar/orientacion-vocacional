@@ -242,7 +242,7 @@ export class EstadisticaComponent implements OnInit {
     compararFechas(fechaInicio: Date, fechaFin: Date) {
         this.dataGralNameRango = [];
         this.dataGralRango = [];
-        console.log(fechaInicio, fechaFin);
+        // console.log(fechaInicio, fechaFin);
         if ( !fechaInicio || !fechaFin) {
             Toast.fire({
                 icon: 'warning',
@@ -294,7 +294,7 @@ export class EstadisticaComponent implements OnInit {
             } else {
                 this.estadisticaService.getEstadisticaRango(fechaInicio, fechaFin).then((data: any) => {
                     this.perfilGralRango = data.cont.arrPerfil;
-                    console.log(this.perfilGralRango);
+                    // console.log(this.perfilGralRango);
                     // tslint:disable-next-line: no-shadowed-variable
                     this.perfilGralRango.forEach( resp => {
                         this.dataGralNameRango.push(resp.strNombre);
