@@ -15,6 +15,7 @@
 .back-image {
     background-image: url("../assets/bg.png");
     background-size: 450px;
+    background-repeat: repeat-x;
     background-attachment: fixed;
 }
 

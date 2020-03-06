@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ResultadoModel } from 'src/app/models/resultado.model';
 
+declare var $: any;
+
 @Component({
   selector: 'app-retroalimentacion',
   templateUrl: './retroalimentacion.component.html',
@@ -54,12 +56,13 @@ export class RetroalimentacionComponent implements OnInit {
    }
 
   async ngOnInit() {
+    $('[data-toggle="tooltip"]').tooltip();
     this.data = [];
     await this.preguntaService.getResultado(this.idPersona).then( async (resp: any) => {
       // tslint:disable-next-line: only-arrow-functions
-      resp.cont.arrPerfil.sort(function(a, b) {
-        return b.nmbPuntos - a.nmbPuntos;
-      });
+      // resp.cont.arrPerfil.sort(function(a, b) {
+      //   return b.nmbPuntos - a.nmbPuntos;
+      // });
       this.resultado = resp.cont.arrPerfil;
       // tslint:disable-next-line: no-shadowed-variable
       this.resultado.forEach(resp => {
@@ -119,5 +122,9 @@ export class RetroalimentacionComponent implements OnInit {
         confirmButtonColor: '#17a2b8'
       });
     });
+  }
+
+  registro() {
+    this.route.navigate(['/test']);
   }
 }
