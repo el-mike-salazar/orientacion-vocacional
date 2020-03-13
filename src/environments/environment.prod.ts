@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   // urlGlobal: 'http://localhost:3000/api',
-  urlGlobal: 'https://api-orientacion-vocacional.fs.utags.edu.mx:3000/api',
+  urlGlobal: 'https://api-orientacion-vocacional.herokuapp.com/api/plantel/obtener',
   satisfaccion: {
     0: '5e41bc702ae765177c24ff8d',
     1: '5e41bc762ae765177c24ff8f',
